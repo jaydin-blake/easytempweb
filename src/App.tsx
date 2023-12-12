@@ -23,7 +23,7 @@ type StatesType = {
     deviceList: Device[];
     sort: string | null;
 };
-const DMSURL = "easytempserver.railway.internal";
+const DMSURL = "https://easytempserver-production.up.railway.app";
 
 export default class App extends React.Component<PropsType, StatesType> {
     static defaultProps: PropsType = {};
