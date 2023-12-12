@@ -51,3 +51,32 @@
         transform: rotate(360deg);
     }
 }
+.temp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: black;
+}
+
+.temp-table th,
+.temp-table td {
+    border: 1px solid #dddddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.temp-table th {
+    background-color: #e7e2e2;
+}
+
+.even-row {
+    background-color: #ffffff;
+}
+
+.odd-row {
+    background-color: #e4e4e4;
+}
+
+.temp-table tr:nth-child(even) .temp-table td {
+    background-color: #e0e0e0; /* Dark grey for even rows */
+}

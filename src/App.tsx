@@ -90,58 +90,39 @@ export default class App extends React.Component<PropsType, StatesType> {
                                 ))}
                             </select>
                         </div>
-
-                        {this.state.mFilteredList.map((temp, index) => (
-                            <div
-                                className="temp"
-                                key={temp.logId}
-                                style={{
-                                    width: "98%",
-                                    backgroundColor:
-                                        index % 2 === 0 ? "lightgray" : "white",
-                                    padding: "5px", // Optional: Add padding for better spacing
-                                }}
-                            >
-                                <p
-                                    style={{
-                                        borderRight: "1px solid gray",
-                                        padding: "5px",
-                                    }}
-                                >
-                                    Date{" "}
-                                    {dayjs(temp.tempDate.toString()).format(
-                                        "MM/DD/YY hh:mm A"
-                                    )}
-                                </p>
-                                <p
-                                    style={{
-                                        borderRight: "1px solid gray",
-                                        padding: "5px",
-                                    }}
-                                >
-                                    Device {temp.deviceId}
-                                </p>
-                                <p
-                                    style={{
-                                        borderRight: "1px solid gray",
-                                        padding: "5px",
-                                    }}
-                                >
-                                    Description {temp.deviceDescription}
-                                </p>
-                                <p
-                                    style={{
-                                        borderRight: "1px solid gray",
-                                        padding: "5px",
-                                    }}
-                                >
-                                    Temperature {temp.temp}
-                                </p>
-                                <p style={{ padding: "5px" }}>
-                                    Humidity {temp.humidity}
-                                </p>
-                            </div>
-                        ))}
+                        <table className="temp-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Device</th>
+                                    <th>Description</th>
+                                    <th>Temperature</th>
+                                    <th>Humidity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.state.mFilteredList.map((temp, index) => (
+                                    <tr
+                                        key={temp.logId}
+                                        className={
+                                            index % 2 === 0
+                                                ? "even-row"
+                                                : "odd-row"
+                                        }
+                                    >
+                                        <td>
+                                            {dayjs(
+                                                temp.tempDate.toString()
+                                            ).format("MM/DD/YY hh:mm A")}
+                                        </td>
+                                        <td>{`Device ${temp.deviceId}`}</td>
+                                        <td>{`Description ${temp.deviceDescription}`}</td>
+                                        <td>{`Temperature ${temp.temp}`}</td>
+                                        <td>{`Humidity ${temp.humidity}`}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
                 </header>
             </div>
