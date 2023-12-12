@@ -115,10 +115,10 @@ export default class App extends React.Component<PropsType, StatesType> {
                                                 temp.tempDate.toString()
                                             ).format("MM/DD/YY hh:mm A")}
                                         </td>
-                                        <td>{`Device ${temp.deviceId}`}</td>
-                                        <td>{`Description ${temp.deviceDescription}`}</td>
-                                        <td>{`Temperature ${temp.temp}`}</td>
-                                        <td>{`Humidity ${temp.humidity}`}</td>
+                                        <td>{temp.deviceId}</td>
+                                        <td>{temp.deviceDescription}</td>
+                                        <td> {temp.temp} F</td>
+                                        <td>{temp.humidity} %</td>
                                     </tr>
                                 ))}
                             </tbody>
