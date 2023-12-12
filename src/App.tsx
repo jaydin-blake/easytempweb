@@ -23,6 +23,7 @@ type StatesType = {
     deviceList: Device[];
     sort: string | null;
 };
+const DMSURL = "easytempserver.railway.internal";
 
 export default class App extends React.Component<PropsType, StatesType> {
     static defaultProps: PropsType = {};
@@ -169,7 +170,7 @@ export default class App extends React.Component<PropsType, StatesType> {
 
     async componentDidMount(): Promise<void> {
         try {
-            const response = await fetch(`http://localhost:3001/temps/`, {
+            const response = await fetch(DMSURL + `/temps/`, {
                 method: "GET",
             });
             console.log(response); // Log the response
@@ -180,7 +181,7 @@ export default class App extends React.Component<PropsType, StatesType> {
             console.error(error);
         }
         try {
-            const response = await fetch(`http://localhost:3001/devices/`, {
+            const response = await fetch(DMSURL + `/devices/`, {
                 method: "GET",
             });
             console.log(response); // Log the response
